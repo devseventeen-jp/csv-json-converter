@@ -138,16 +138,27 @@ downloadButton.addEventListener("click", () => {
     renderResult({ json: "", info: "出力がありません。先に変換してください。" });
     return;
   }
+  const suggestedName = "data.json";
+  const filename = window.prompt("保存するファイル名を入力してください", suggestedName);
+  if (filename === null) {
+    renderResult({ json: jsonOutput.textContent, info: "保存をキャンセルしました。" });
+    return;
+  }
+  const trimmed = filename.trim();
+  if (!trimmed) {
+    renderResult({ json: jsonOutput.textContent, info: "ファイル名が空のため保存できません。" });
+    return;
+  }
   const blob = new Blob([jsonOutput.textContent], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement("a");
   anchor.href = url;
-  anchor.download = "data.json";
+  anchor.download = trimmed;
   document.body.appendChild(anchor);
   anchor.click();
   anchor.remove();
   URL.revokeObjectURL(url);
-  renderResult({ json: jsonOutput.textContent, info: "JSONを保存しました。" });
+  renderResult({ json: jsonOutput.textContent, info: `JSONを保存しました: ${trimmed}` });
 });
 
 loadSampleButton.addEventListener("click", () => {
