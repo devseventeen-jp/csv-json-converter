@@ -12,4 +12,3 @@ GitHub Pagesで動作するCSV→JSON変換ツールです。
 
 - `main` へpushすると `.github/workflows/gh-pages.yml` が `site/` をデプロイします。
 - 初回のみ、GitHubのリポジトリ設定で Pages の Source を **GitHub Actions** に設定してください。
-- Pages のビルドに Jekyll 設定が必要だったため、`_config.yml` を配置してください。
