@@ -1,6 +1,7 @@
 # csv-json-converter
 
 GitHub Pagesで動作するCSV→JSON変換ツールです。
+This is a CSV to JSON conversion tool that works on GitHub Pages.
 
 ## 使い方
 
@@ -12,3 +13,6 @@ GitHub Pagesで動作するCSV→JSON変換ツールです。
 
 - `main` へpushすると `.github/workflows/gh-pages.yml` が `site/` をデプロイします。
 - 初回のみ、GitHubのリポジトリ設定で Pages の Source を **GitHub Actions** に設定してください。
+
+## デプロイ済みのページ
+https://devseventeen-jp.github.io/csv-json-converter/
